@@ -1,0 +1,84 @@
+{
+  "version": "1.0.2", 
+  "api": {
+    "cube_lamp": {
+      "type": "data", 
+      "readonly": false, 
+      "attributes": {
+        "brightness": {"type": "int", "value": 30}, 
+        "saturation": {"type": "int", "value": 42}, 
+        "hue": {"type": "int", "value": 42}, 
+        "state": {"type": "int", "value": 0, "size": 1}
+      }
+    }
+  }, 
+  "ui": {
+    "production": false, 
+    "brand": "Brand Name", 
+    "logo": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<svg viewBox=\"0 0 600 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"0\" y=\"0\" width=\"600\" height=\"150\" rx=\"20\" ry=\"20\" style=\"stroke: none; fill: #e1e5e9;\"/>\n  <text style=\"fill: #94A3B8; font-family: Arial, sans-serif; font-size: 48px;\" x=\"200\" y=\"90\">my logo</text>\n</svg>", 
+    "toolbar": {
+      "label": "My product console"
+    }, 
+    "theme": {
+    }, 
+    "pages": [
+      {"title": "Dashboard", "icon": "desktop", "level": 0, "classes": "page", "layout": [
+          {"css": "flex:0 0 auto;flex-wrap:wrap;height:39.75rem;width:17.75rem;", "layout": [
+              {"classes": "panel", "css": "flex:0 0 auto;border-radius:0.5rem;border:1px solid #294380;background:#294380;flex-basis:0 0 auto;width:17.75rem;height:11.5rem;", "layout": [
+                  {"classes": "container", "css": "border:1px solid #69d2cd;background:#69d2cd;gap:0.5rem;", "layout": [
+                      {"classes": "title", "format": "Cube Lamp Control", "css": "flex:0 0 auto;width:8.033333778381348rem;"}
+                    ]},
+                  {"classes": "labeled", "layout": [
+                      {"classes": "label", "format": "Lamp State", "css": "flex:0 0 auto;width:4.5rem;height:1.1875rem;"},
+                      {"type": "toggle", "ref": "cube_lamp.state", "autosave": true}
+                    ]},
+                  {"css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                      {"format": "Hue", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                      {"type": "slider", "ref": "cube_lamp.hue", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "autosave": true, "max": "360", "min": "0", "step": "1"}
+                    ], "classes": "container"},
+                  {"classes": "container", "css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                      {"format": "Saturation", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                      {"type": "slider", "ref": "cube_lamp.saturation", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "max": "100", "min": "0", "step": "1", "autosave": true}
+                    ]},
+                  {"classes": "container", "css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                      {"format": "Brightness", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                      {"type": "slider", "ref": "cube_lamp.brightness", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "max": "100", "min": "0", "step": "1", "autosave": true}
+                    ]}
+                ], "ref": ""},
+              {"css": "flex:0 0 auto;flex-basis:0 0 auto;width:18rem;", "layout": [
+                  {"classes": "labeled", "css": "margin-top:0.25rem;justify-content:end;height:2rem;", "layout": [
+                      {"format": " "}
+                    ]},
+                  {"classes": "panel", "css": "flex:0 0 auto;border-radius:0.5rem;border:1px solid #294380;background:#294380;flex-basis:0 0 auto;width:17.75rem;height:11.5rem;", "layout": [
+                      {"classes": "container", "css": "border:1px solid #69d2cd;background:#69d2cd;gap:0.5rem;", "layout": [
+                          {"classes": "title", "format": "Cube Lamp Control", "css": "flex:0 0 auto;width:8.033333778381348rem;"}
+                        ]},
+                      {"classes": "labeled", "layout": [
+                          {"classes": "label", "format": "Lamp State", "css": "flex:0 0 auto;width:4.5rem;height:1.1875rem;"},
+                          {"type": "toggle", "ref": "cube_lamp.state", "autosave": true}
+                        ]},
+                      {"css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                          {"format": "Hue", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                          {"type": "slider", "ref": "cube_lamp.hue", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "autosave": true, "max": "360", "min": "0", "step": "1"}
+                        ], "classes": "container"},
+                      {"classes": "container", "css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                          {"format": "Saturation", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                          {"type": "slider", "ref": "cube_lamp.saturation", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "max": "100", "min": "0", "step": "1", "autosave": true}
+                        ]},
+                      {"classes": "container", "css": "gap:0.5rem;flex-wrap:wrap;", "layout": [
+                          {"format": "Brightness", "css": "flex:0 0 auto;width:4.25rem;height:1.5rem;"},
+                          {"type": "slider", "ref": "cube_lamp.brightness", "css": "flex:0 0 auto;width:11.25rem;height:1.625rem;", "max": "100", "min": "0", "step": "1", "autosave": true}
+                        ]}
+                    ], "ref": ""}
+                ]}
+            ]}
+        ], "css": "color:#b9f1d6;background:#0d0f36;height:77.75rem;"}
+    ]
+  }, 
+  "http": {"http": true, "https": true, "ui": true, "login": false, "ca": ""}, 
+  "mqtt": {"enable": true, "url": "mqtt://192.168.1.103:1883", "ca": "", "rx": "{device_id}/rx", "tx": "{device_id}/tx"}, 
+  "dns": {"type": "default", "url": "udp://8.8.8.8:53", "captive": false}, 
+  "sntp": {"enable": false, "type": 0, "url": "udp://time.google.com:123", "interval": 3600}, 
+  "modbus": {"enable": false, "port": 502}, 
+  "build": {"mode": "new", "board": "unix", "ide": "GCC+make", "rtos": "baremetal"}
+}
