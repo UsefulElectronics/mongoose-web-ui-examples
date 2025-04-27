@@ -8,12 +8,12 @@ MFLAGS = -DMG_DATA_SIZE=64 -DMG_ENABLE_PACKED_FS=1 -DMG_TLS=MG_TLS_BUILTIN
 
 # Build program from sources
 build: $(SOURCES)
-	$(CC) $(SOURCES) $(CFLAGS) $(MFLAGS) $(CFLAGS_EXTRA) -o firmware
-	cp firmware firmware.bin
+	$(CC) $(SOURCES) $(CFLAGS) $(MFLAGS) $(CFLAGS_EXTRA) -o iot_web_server
+	cp iot_web_server iot_web_server.bin
 
 windows: $(PROG)
-	cl /MD /Os /W3 /nologo $(SOURCES) $(MFLAGS) $(CFLAGS_EXTRA) /Fefirmware.exe
-	copy firmware.exe firmware.bin
+	cl /MD /Os /W3 /nologo $(SOURCES) $(MFLAGS) $(CFLAGS_EXTRA) /Feiot_web_server.exe
+	copy iot_web_server.exe iot_web_server.bin
 
 run:
-	nodemon --exec "make && ./firmware" -w . -e c,h
+	nodemon --exec "make && ./iot_web_server" -w . -e c,h

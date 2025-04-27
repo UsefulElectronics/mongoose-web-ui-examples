@@ -77,14 +77,54 @@ static struct cube_lamp s_cube_lamp = {30, 42, 42, false};
 void glue_get_cube_lamp(struct cube_lamp *data) {
   *data = s_cube_lamp;  // Sync with your device
 }
-void glue_set_cube_lamp(struct cube_lamp *data) {
+void glue_set_cube_lamp(struct cube_lamp *data) 
+{
+  char tmp[20] = {0};
+  struct mg_mqtt_opts opts;
+
   s_cube_lamp = *data; // Sync with your device
+
+  // Send response to the TX topic
+  if (g_mqtt_conn != NULL) 
+  {
+    memset(&opts, 0, sizeof(opts));
+    sprintf(tmp, "%d, %d, %d", s_cube_lamp.hue, s_cube_lamp.saturation, s_cube_lamp.brightness);   
+    opts.topic = mg_str("1/rgbled/sethsv");
+    opts.message = mg_str(tmp);
+    mg_mqtt_pub(g_mqtt_conn, &opts);
+
+    memset(&opts, 0, sizeof(opts));
+    sprintf(tmp, "%d", s_cube_lamp.state);   
+    opts.topic = mg_str("1/rgbled/seton");
+    opts.message = mg_str(tmp);
+    mg_mqtt_pub(g_mqtt_conn, &opts);
+  }
 }
 
 static struct round_lamp s_round_lamp = {42, 42, 42, false};
-void glue_get_round_lamp(struct round_lamp *data) {
+void glue_get_round_lamp(struct round_lamp *data) 
+{
   *data = s_round_lamp;  // Sync with your device
 }
-void glue_set_round_lamp(struct round_lamp *data) {
+void glue_set_round_lamp(struct round_lamp *data) 
+{
+  char tmp[20] = {0};
+  struct mg_mqtt_opts opts;
   s_round_lamp = *data; // Sync with your device
+
+    // Send response to the TX topic
+  if (g_mqtt_conn != NULL) 
+  {
+    memset(&opts, 0, sizeof(opts));
+    sprintf(tmp, "%d, %d, %d", s_round_lamp.hue, s_round_lamp.saturation, s_round_lamp.brightness);   
+    opts.topic = mg_str("2/rgbled/sethsv");
+    opts.message = mg_str(tmp);
+    mg_mqtt_pub(g_mqtt_conn, &opts);
+
+    memset(&opts, 0, sizeof(opts));
+    sprintf(tmp, "%d", s_round_lamp.state);   
+    opts.topic = mg_str("2/rgbled/seton");
+    opts.message = mg_str(tmp);
+    mg_mqtt_pub(g_mqtt_conn, &opts);
+  }
 }
