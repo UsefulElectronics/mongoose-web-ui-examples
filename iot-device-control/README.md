@@ -73,5 +73,5 @@ This feature uses binary images
 - [Tutorials](https://mongoose.ws/documentation/#tutorials)
 - [Mongoose User Guide](https://mongoose.ws/documentation/)
 
-![Circuit Diagram](https://github.com/UsefulElectronics/homebridge-devices/blob/main/diagram/rtsp%20server.png)
+![Circuit Diagram](https://github.com/UsefulElectronics/mongoose-web-ui-examples/blob/main/diagram/iot-device-control.png)
 ***
