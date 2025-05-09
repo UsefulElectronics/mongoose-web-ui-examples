@@ -19,7 +19,81 @@ We'll be using Mongoose Wizard to design a beautiful dashboard and deploy it on 
 ✅ Step-by-step guidance
 
 Whether you're a beginner or just looking for a faster way to create amazing IoT dashboards, this video will guide you through it all!
+***
+## Helpful Commands
+***
+## Transferring and Extracting the Wizard Output on Raspberry Pi
 
+### Step 1: Compress the `wizard` output directory on Windows
+
+Open your terminal (e.g., Git Bash), navigate to the parent directory of `wizard`, and run:
+
+```bash
+tar -cvf wizard.tar wizard
+```
+
+
+where 
+c : compress
+v : verbose
+f : file 
+
+### Step 2: Transfer the .tar file to your Raspberry Pi
+
+Then transfer the compressed file to your raspberry pi using secure copy command
+```bash
+scp "C:\Users\user-name\Downloads\wizard.tar" user-name@192.168.1.112:/home/user-name/wizard.tar 
+```
+Replace <your-username>, <pi-username>, and <pi-ip> with your actual values.
+The format is: scp <source> <destination>
+
+### Step 3: Extract the .tar file on the Raspberry Pi
+
+Having the wizard.tar file transfered successfully to the raspberry pi we need to decompress the .tar file SSH into your Raspberry Pi and run:
+```bash
+tar -xvf wizard.tar
+```
+where 
+x: extract
+v: verbose (shows file names as they’re extracted)
+f: file name follows (wizard.tar)
+
+***
+## Opening the Wizard Project Remotely in VS Code
+
+### Step 1: Install and Configure the “Remote – SSH” Extension  
+1. Open VS Code.  
+2. Go to the Extensions view (`Ctrl+Shift+X` or the square icon).  
+3. Search for **Remote – SSH** and click **Install**.  
+
+---
+
+### Step 2: Add Your Raspberry Pi as an SSH Host  
+1. Press `F1` (or `Ctrl+Shift+P`) and type **Remote-SSH: Open SSH Configuration File…**, then select your `~/.ssh/config`.  
+2. Add an entry for your Pi, for example:
+   ```ssh
+   Host raspberrypi
+     HostName 192.168.1.112
+     User pi
+     IdentityFile ~/.ssh/id_rsa
+	 ```
+### Step 3: Connect to the Pi via SSH
+
+Press F1 and select Remote-SSH: Connect to Host…
+
+Choose raspberrypi (or whatever you named it).
+
+A new VS Code window opens, connected to your Pi.
+
+### Step 4: Open the Wizard Project Folder
+
+In the remote VS Code window, go to File > Open Folder…
+
+Navigate to /home/pi/wizard (or wherever you extracted wizard.tar).
+
+Click OK. The project files (e.g. main.c, Makefile, mongoose/) appear in the Explorer.
+
+You’re now editing, building, and debugging the Wizard project live on your Raspberry Pi directly from VS Code!
 
 ## Build and flash
 
